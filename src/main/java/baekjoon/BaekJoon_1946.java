@@ -17,8 +17,10 @@ class Grade implements Comparable<Grade> {
     public int compareTo(Grade o) {
         if(this.a > o.a) {
             return 1;
-        } else {
+        } else if (this.a<o.a){
             return -1;
+        }else{
+            return 0;
         }
     }
 }
