@@ -26,7 +26,7 @@ public class MBTI {
         }
         for(int i = 0; i < score.length;i++){
             sb.append(score[i]<=0?mbti[i].charAt(0):mbti[i].charAt(1));
-        } // 점수를 토대로 mbti 생성
+        } // 점수를 토대로 mbti 생성!
 
         String answer=sb.toString();
 
