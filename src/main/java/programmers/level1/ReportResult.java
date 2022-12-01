@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ReportResult {
     public static void main(String[] args) {
-        // 프로그래머스 Level1 신고결과 받기
+        // 프로그래머스 Level1 신고결과 받기!
         int[] solution = solution(new String[]{"muzi", "frodo", "apeach", "neo"},
                 new String[]{"muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"}, 2);
         for(int i = 0 ; i < solution.length;i++){
