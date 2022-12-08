@@ -8,9 +8,10 @@ public class MakingDot {
     public static long solution(int k, int d){
         long answer=0;
         for(long x=0;x<=d;x+=k){
-            long y=(long)Math.sqrt((long)Math.pow(d,2)-(long)Math.pow(x,2))/k;
+            long y=(long)Math.sqrt((long)d*d-(long)x*x)/k;
             answer+=y+1;
         }
+
         return answer;
     }
 }
