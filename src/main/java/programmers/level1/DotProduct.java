@@ -1,8 +1,12 @@
 package programmers.level1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DotProduct {
     public static void main(String[] args) {
         // 프로그래머스 level1 내적
+
     }
     public static int solution(int[] a,int[] b){
         int answer=0;
