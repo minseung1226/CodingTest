@@ -17,6 +17,11 @@ public class Knum {
         int[] answer=new int[commands.length];
 
         for(int i =0 ; i<commands.length;i++){
+            /*int[] test=new int[commands[i][1]-commands[i][0]];
+            int index=0;
+            for(int j =commands[i][0] - 1;j<commands[i][1];j++){
+                test[index++]=array[j];
+            }*/
             int[] test = Arrays.copyOfRange(array, commands[i][0] - 1, commands[i][1]);
             Arrays.sort(test);
             answer[i]=test[commands[i][2]-1];
