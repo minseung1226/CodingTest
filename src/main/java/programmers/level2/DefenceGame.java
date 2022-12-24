@@ -32,13 +32,28 @@ public class DefenceGame {
         for(int i = 0 ; i <= mid; i++){
             pq.add(enemy[i]);
         }
-        for(int i = 0 ; i<enemy.length;i++){
+        while(!pq.isEmpty()){
+            Integer round = pq.poll();
+            if (n>=round){
+                n-=round;
+                continue;
+            }
+            return k>=pq.size();
+        }
+        return true;
+
+        /*for(int i = 0 ; i<enemy.length;i++){
             int round=pq.poll();
-            n-=round;
-            if(n<0){
+
+            if(n>=round){
+                n-=round;
+            }
+            else{
                 pq.add(round);
+                break;
             }
         }
         return k>=pq.size();
+        */
     }
 }
