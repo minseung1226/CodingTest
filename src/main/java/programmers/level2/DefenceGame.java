@@ -7,8 +7,8 @@ import java.util.PriorityQueue;
 
 public class DefenceGame {
     public static void main(String[] args) {
-        System.out.println(solution(7,3,new int[]{4, 2, 4, 5, 3, 3, 1}));
-    }
+        System.out.println("정답"+method());
+        }
     public static int solution(int n, int k, int[] enemy){
         int left = 0;
         int right=enemy.length;
@@ -55,5 +55,20 @@ public class DefenceGame {
         }
         return k>=pq.size();
         */
+    }
+
+    public static int method(){
+        int[] arr=new int[]{7,13,22,23,25,27,29,46,48,67,45};
+        int left=0;
+        int right=arr.length;
+
+        while (left<right){
+            int mid=(left+right)/2;
+            System.out.println("left="+left+" right="+right+" mid="+mid);
+
+            if(arr[mid]>30) right=mid;
+            else left=mid+1;
+        }
+        return arr[left-1];
     }
 }
