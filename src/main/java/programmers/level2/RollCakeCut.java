@@ -11,18 +11,20 @@ public class RollCakeCut {
         System.out.println(solution(new int[]{1, 2, 1, 3, 1, 4, 1, 2}));
     }
     public static int solution(int[] topping){
-        Set<Integer> set = new HashSet<>();
-        Map<Integer,Integer> map = new HashMap<>();
+        Set<Integer> set = new HashSet<>();  //철수 케이크
+        Map<Integer,Integer> map = new HashMap<>(); // 동생 케이크
         int answer= 0 ;
+
         set.add(topping[0]) ;
-        for(int i=1; i < topping.length;i++){
+
+        for(int i=1; i < topping.length;i++){ // key 케이크 종류 , value 종류별 케이크 개수
             int num = topping[i];
             map.put(num,map.getOrDefault(num,0)+1);
         }
 
 
         for(int i=1; i < topping.length;i++){
-            if(set.size()==map.size()) answer++;
+            if(set.size()==map.size()) answer++;  // 공평하게 나누었을 때
             set.add(topping[i]);
             int cakeCount = map.get(topping[i]);
 
