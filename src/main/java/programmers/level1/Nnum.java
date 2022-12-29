@@ -11,6 +11,6 @@ public class Nnum {
             num+=x;
             answer[i]=num;
         }
-        return answer;
+        return answer ;
     }
 }
