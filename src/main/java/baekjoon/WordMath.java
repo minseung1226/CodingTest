@@ -4,7 +4,7 @@ import java.util.*;
 
 public class WordMath {
     public static void main(String[] args) {
-        //백준 단어 수학
+        //백준 1339 단어 수학
         Scanner scanner = new Scanner(System.in);
         int wordCount = scanner.nextInt();
         String[] word= new String[wordCount];

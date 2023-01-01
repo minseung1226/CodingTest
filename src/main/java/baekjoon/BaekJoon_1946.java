@@ -4,26 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
-class Grade implements Comparable<Grade> {
-    int a;
-    int b;
 
-    Grade(int a, int b) {
-        this.a = a;
-        this.b = b;
-    }
-
-    @Override
-    public int compareTo(Grade o) {
-        if(this.a > o.a) {
-            return 1;
-        } else if (this.a<o.a){
-            return -1;
-        }else{
-            return 0;
-        }
-    }
-}
 public class BaekJoon_1946 {
 
 
@@ -59,6 +40,26 @@ public class BaekJoon_1946 {
             System.out.println(result[i]);
         }
 
+    }
+    static class Grade implements Comparable<Grade> {
+        int a;
+        int b;
+
+        Grade(int a, int b) {
+            this.a = a;
+            this.b = b;
+        }
+
+        @Override
+        public int compareTo(Grade o) {
+            if(this.a > o.a) {
+                return 1;
+            } else if (this.a<o.a){
+                return -1;
+            }else{
+                return 0;
+            }
+        }
     }
 
 
