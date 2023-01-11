@@ -2,51 +2,45 @@ package programmers.level2;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Stack;
 
 public class BoxDelivery {
     public static void main(String[] args) {
-        System.out.println(solution(4,5,new int[]{1, 0, 3, 1, 2},new int[]{0, 3, 0, 4, 0}));
+        // 프로그래머스 level2 택배상자
+        System.out.println(solution(new int[]{2, 1, 4, 3, 6, 5, 8, 7, 10, 9}));
     }
-    public static long solution(int cap,int n,int[] deliveries, int[] pickups){
-        long answer=0;
-        int dIndex=n-1;
-        int pIndex=n-1;
-        int a =n;
-        while(n>0){
-            System.out.println(Math.abs(n-a+1) + "번째 ");
-            if(deliveries[n-1]==0 && pickups[n-1]==0){
-                n--;
-                continue;
-            }
-            int deliveryCap=cap;
-            int pickupCap=cap;
-            int point =n;
-            while (deliveryCap>=0 && pickupCap>=0 && dIndex>=0 && pIndex>=0){
+    public static int solution(int[] order){
+        Stack<Integer> myContainer = new Stack<>();
+        Stack<Integer> subContainer = new Stack<>() ;
+        int target=0; // 현재 담아야 하는 택배박스
+        int answer=0;
 
-                if(deliveryCap>0 && dIndex>=0){
-                    deliveryCap-=deliveries[dIndex];
-                    if(deliveryCap<0){
-                        deliveries[dIndex]=Math.abs(deliveryCap);
-                    }
-                    else{
-                        dIndex--;
-                    }
-                }
-                if(pickupCap>0 && pIndex>=0){
-                    pickupCap-=pickups[pIndex];
-                    if(pickupCap<0){
-                        pickups[pIndex]=Math.abs(pickupCap);
-                    }
-                    else{
-                        pIndex--;
-                    }
-                }
+        for(int i =order.length;i>0;i--) myContainer.add(i);
+
+        while(myContainer.peek() !=order[0]){ //처음 담아야 하는 택배가 나오기 전까지 subContainer에 담기
+            subContainer.add(myContainer.pop());
+        }
+
+        while(target<order.length){
+            if(!myContainer.isEmpty() &&myContainer.peek()==order[target]){ // 담아야 하는 택배가 컨테이너이 있는 경우
+                answer++;
+                myContainer.pop();
+                target++;
             }
-            answer+=n*2;
-            n=dIndex>pIndex?dIndex:pIndex;
+            else if(!subContainer.isEmpty() &&subContainer.peek()==order[target]){ // 담아야 하는 택배가 서브 컨테이너에 있는 경우
+                answer++;
+                subContainer.pop();
+                target++;
+            }
+            else if(!myContainer.isEmpty()){ // 양쪽의 컨테이너중 택배와 일치하는 택배가 없고, 컨테이너에서 서브 컨테이너로 옮겨 놓을 수 있을 때
+                Integer pop = myContainer.pop();
+                subContainer.add(pop);
+            }
+            else{
+                break;
+            }
 
         }
         return answer;
-
     }
 }
