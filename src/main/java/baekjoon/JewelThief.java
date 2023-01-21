@@ -9,7 +9,6 @@ import java.util.*;
 public class JewelThief {
     public static void main(String[] args) throws IOException {
         //백준 1202번 보석 도둑
-        Scanner scan = new Scanner(System.in);
         BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
         int result=0;
         String[] jbCount = br.readLine().split(" ");
@@ -18,7 +17,7 @@ public class JewelThief {
 
         PriorityQueue<Jewel> jewels = new PriorityQueue<>(Collections.reverseOrder());
         List<Integer> bags = new ArrayList<>();
-
+        ArrayList<Integer> bagIndexs = new ArrayList<>();
         for(int i = 0 ; i <jewelCount;i++){
             String[] jewelLine = br.readLine().split(" ");
             Jewel jewel = new Jewel();
@@ -34,19 +33,17 @@ public class JewelThief {
         while (!jewels.isEmpty()) {
             Jewel jewel = jewels.poll();
 
-            int bagIndex = -1;
-            for (int i = 0; i < bags.size(); i++) {
+            int i=0;
+            for (; i < bags.size(); i++) {
                 if (bags.get(i) >= jewel.weight) {
+                    if(bagIndexs.contains(i))continue;
+
                     result += jewel.price;
-                    bags.remove(i);
+                    bagIndexs.add(i);
                     break;
                 }
             }
-
-
-
-            if(bags.isEmpty()) break;
-
+            if(bagIndexs.size()==bags.size()) break;
         }
 
 
