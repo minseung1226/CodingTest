@@ -42,7 +42,7 @@ public class Matrix {
                         break first;
                     }
                     else{
-                        changeArr(A,i,j);
+                        change(A,i,j);
                         result++;
                     }
                 }
@@ -51,10 +51,11 @@ public class Matrix {
 
         System.out.println(result);
     }
-    private static void changeArr(int[][] A,int x,int y){
+    private static void change(int[][] A,int x,int y){
         for(int i=x;i<x+3;i++){
             for(int j=y;j<y+3;j++){
                 A[i][j]=A[i][j]==0?1:0;
+
             }
         }
     }
