@@ -15,22 +15,22 @@ public class HotelRoom {
     }
 
     public static int solution(String[][] book_time){//(a,b)->a.start-b.start
-        PriorityQueue<TimeClass> studyRoom=new PriorityQueue<>((a,b)->a.end-b.end);
-        PriorityQueue<TimeClass> timeClasses=new PriorityQueue<>((a,b)->a.start-b.start);
+        PriorityQueue<TimeClass> nowRooms=new PriorityQueue<>((a,b)->a.end-b.end);
+        PriorityQueue<TimeClass> allRooms=new PriorityQueue<>((a,b)->a.start-b.start);
 
         for(int i=0;i < book_time.length;i++){
-            timeClasses.add(new TimeClass(book_time[i]));
+            allRooms.add(new TimeClass(book_time[i]));
         }
 
 
-        while (!timeClasses.isEmpty()){
-            TimeClass timeClass = timeClasses.poll();
-            if(!studyRoom.isEmpty()&&studyRoom.peek().end<=timeClass.start){
-                    studyRoom.poll();
+        while (!allRooms.isEmpty()){
+            TimeClass timeClass = allRooms.poll();
+            if(!nowRooms.isEmpty()&&nowRooms.peek().end<=timeClass.start){
+                    nowRooms.poll();
             }
-                studyRoom.add(timeClass);
+                nowRooms.add(timeClass);
         }
-        return studyRoom.size();
+        return nowRooms.size();
     }
 
     static class TimeClass{
