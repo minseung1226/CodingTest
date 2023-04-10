@@ -21,5 +21,6 @@ public class Camouflage {
         int sum = map.values().stream().mapToInt(i->i+1).reduce((a,b)->a*b).getAsInt();
 
         return sum-1;
+
     }
 }
