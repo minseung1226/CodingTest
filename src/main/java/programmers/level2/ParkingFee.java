@@ -38,7 +38,6 @@ public class ParkingFee {
                     record.parkingTime+=record.outTime-record.inTime;
                     record.resetTime();
                     record.inTime=changeTime(time);
-
                 }
                 else{
                     Record record = new Record();
