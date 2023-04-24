@@ -7,7 +7,8 @@ import java.util.regex.Pattern;
 public class FileNameSort {
     public static void main(String[] args) {
         //프로그래머스 level2 파일명 정렬
-        String[] solution = solution(new String[]{"img12.png", "img10.png", "img02.png", "img1.png", "IMG01.GIF", "img2.JPG"});
+        String[] solution = solution(new String[]{"F-5 Freedom Fighter", "B-50 Superfortress",
+                "A-10 Thunderbolt II", "F-14 Tomcat"});
         for (String s : solution) {
             System.out.println("s = " + s);
         }
@@ -27,13 +28,14 @@ public class FileNameSort {
         }
 
         Arrays.sort(answer,(s1,s2)->{
-            if(s1[0].equals(s2[0])){
+            if(s1[0].toUpperCase().equals(s2[0].toUpperCase())){
                 return Integer.parseInt(s1[1])-Integer.parseInt(s2[1]);
             }
             else{
                 return s1[0].toUpperCase().compareTo(s2[0].toUpperCase());
             }
         });
+
 
         String[] strings = new String[answer.length];
         for(int i=0;i<strings.length;i++){
